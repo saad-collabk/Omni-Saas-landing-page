@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>OmniPOS - Modern POS Platform Built for High-Volume Retail</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#10232A",
+            "primary-container": "#B58863",
+            "surface-clay": "#D3C3B9",
+            "secondary-slate": "#3D4D55",
+            "outline-muted": "#A79E9C",
+            "background": "#FBF9F9",
+            "inverse-dark": "#161616"
+          },
+          fontFamily: {
+            "display": ["Geist", "sans-serif"],
+            "body": ["Inter", "sans-serif"],
+            "mono": ["JetBrains Mono", "monospace"]
+          },
+          boxShadow: {
+            'soft': '0 10px 40px -10px rgba(16, 35, 42, 0.06)',
+            'level-1': '0px 1px 3px rgba(15, 23, 42, 0.04), 0px 1px 2px rgba(15, 23, 42, 0.06)',
+            'level-2': '0px 12px 24px -4px rgba(16, 35, 42, 0.08), 0px 4px 6px -2px rgba(16, 35, 42, 0.04)'
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .bg-grid-pattern {
+        background-image: linear-gradient(to right, rgba(167, 158, 156, 0.08) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(167, 158, 156, 0.08) 1px, transparent 1px);
+        background-size: 32px 32px;
+      }
+      .card-base {
+        @apply bg-white rounded-xl border border-outline-muted/40 shadow-soft;
+      }
+      .btn-primary {
+        @apply bg-primary text-white rounded-lg font-body font-semibold text-sm hover:bg-primary-container transition-all px-5 py-2.5 flex items-center justify-center shadow-level-1;
+      }
+      .btn-secondary {
+        @apply bg-transparent border border-outline-muted text-primary rounded-lg font-body font-semibold text-sm hover:bg-surface-clay/20 transition-all px-5 py-2.5 flex items-center justify-center;
+      }
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background text-primary font-body antialiased overflow-x-hidden selection:bg-surface-clay selection:text-primary">
+
+  <!-- 1. Full-Width Fixed Header -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-background/85 backdrop-blur-md border-b border-outline-muted/30">
+    <div class="max-w-[1280px] mx-auto px-6 h-16 flex justify-between items-center">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded bg-primary flex items-center justify-center">
+          <div class="w-3.5 h-3.5 bg-primary-container rounded-sm rotate-45"></div>
+        </div>
+        <span class="font-display font-bold text-xl tracking-tight text-primary">OmniPOS</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-secondary-slate">
+        <a class="text-primary font-semibold hover:text-primary-container transition-colors" href="#features">Features</a>
+        <a class="hover:text-primary transition-colors" href="#hardware">Hardware</a>
+        <a class="hover:text-primary transition-colors" href="#pillars">Multi-Store</a>
+        <a class="hover:text-primary transition-colors" href="#pricing">Pricing</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <a class="hidden sm:block text-sm font-semibold text-secondary-slate hover:text-primary transition-colors" href="#">Sign In</a>
+        <button class="btn-primary rounded-full px-5 py-2">Start Free Trial</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="pt-24 bg-grid-pattern">
+    
+    <!-- 2. Hero Section -->
+    <section class="max-w-[1280px] mx-auto px-6 pt-12 pb-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[640px]">
+      <!-- Left Copy -->
+      <div class="lg:col-span-6 space-y-6">
+        <div class="inline-flex items-center gap-2 bg-surface-clay/40 border border-outline-muted/40 rounded-full px-3.5 py-1">
+          <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+          <span class="text-xs font-semibold tracking-wide text-secondary-slate uppercase font-mono">v3.0 Live — Sub-Second Engine</span>
+        </div>
+        <h1 class="font-display text-4xl sm:text-5xl font-bold tracking-tight text-primary leading-[1.15]">
+          The Modern POS Platform Built for High-Volume Retail.
+        </h1>
+        <p class="text-base sm:text-lg text-secondary-slate max-w-lg leading-relaxed">
+          Unify in-store checkout, real-time multi-outlet inventory, and daily store analytics in one lightning-fast, offline-first interface.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 pt-2">
+          <button class="btn-primary px-7 py-3 text-base">Start 14-Day Free Trial</button>
+          <button class="btn-secondary px-6 py-3 text-base gap-2">
+            <span class="material-symbols-outlined text-lg">play_circle</span>
+            Book Demo
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Tablet POS Mockup -->
+      <div class="lg:col-span-6 relative">
+        <!-- Floating Badges -->
+        <div class="absolute -top-4 -left-4 z-20 bg-white/95 backdrop-blur-sm border border-outline-muted/40 px-3.5 py-2 rounded-lg shadow-level-2 flex items-center gap-2.5">
+          <span class="material-symbols-outlined text-red-600 text-sm">wifi_off</span>
+          <span class="text-xs font-semibold text-primary">Offline Mode Active</span>
+        </div>
+        <div class="absolute -bottom-4 -right-2 z-20 bg-white/95 backdrop-blur-sm border border-outline-muted/40 px-4 py-2 rounded-lg shadow-level-2">
+          <div class="text-[11px] text-secondary-slate font-medium">Daily Store Volume</div>
+          <div class="font-mono text-sm font-bold text-primary-container">$14,245.80</div>
+        </div>
+
+        <!-- Terminal Body -->
+        <div class="card-base p-2 bg-gradient-to-br from-white to-[#F9F7F5] border border-outline-muted transform rotate-1 hover:rotate-0 transition-transform duration-300">
+          <div class="rounded-lg border border-outline-muted/50 bg-white overflow-hidden flex flex-col h-[410px]">
+            <!-- Terminal Title Bar -->
+            <div class="h-11 border-b border-surface-clay/60 flex items-center justify-between px-4 bg-background">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                <span class="text-xs font-semibold text-secondary-slate">Downtown Register #04</span>
+              </div>
+              <span class="font-mono text-[11px] text-primary-container bg-primary-container/10 px-2 py-0.5 rounded font-medium">Sync Active</span>
+            </div>
+            
+            <!-- Products & Cart Columns -->
+            <div class="flex-1 grid grid-cols-12 divide-x divide-surface-clay/60 overflow-hidden">
+              <!-- Catalog -->
+              <div class="col-span-7 p-3 grid grid-cols-2 gap-2.5 content-start overflow-y-auto">
+                <div class="p-2 bg-background border border-outline-muted/40 rounded-lg hover:border-primary-container transition-colors cursor-pointer flex flex-col justify-between h-24">
+                  <div class="w-full h-10 bg-surface-clay/30 rounded flex items-center justify-center">
+                    <span class="material-symbols-outlined text-secondary-slate text-lg">local_cafe</span>
+                  </div>
+                  <div>
+                    <div class="text-[11px] font-semibold text-primary truncate">Ethiopian Roast</div>
+                    <div class="font-mono text-[11px] font-bold text-primary-container">$18.50</div>
+                  </div>
+                </div>
+                <div class="p-2 bg-background border border-outline-muted/40 rounded-lg hover:border-primary-container transition-colors cursor-pointer flex flex-col justify-between h-24">
+                  <div class="w-full h-10 bg-surface-clay/30 rounded flex items-center justify-center">
+                    <span class="material-symbols-outlined text-secondary-slate text-lg">coffee_maker</span>
+                  </div>
+                  <div>
+                    <div class="text-[11px] font-semibold text-primary truncate">Ceramic Dripper</div>
+                    <div class="font-mono text-[11px] font-bold text-primary-container">$35.00</div>
+                  </div>
+                </div>
+                <div class="p-2 bg-background border border-outline-muted/40 rounded-lg hover:border-primary-container transition-colors cursor-pointer flex flex-col justify-between h-24">
+                  <div class="w-full h-10 bg-surface-clay/30 rounded flex items-center justify-center">
+                    <span class="material-symbols-outlined text-secondary-slate text-lg">nutrition</span>
+                  </div>
+                  <div>
+                    <div class="text-[11px] font-semibold text-primary truncate">Oat Milk (Carton)</div>
+                    <div class="font-mono text-[11px] font-bold text-primary-container">$5.50</div>
+                  </div>
+                </div>
+                <div class="p-2 bg-background border border-outline-muted/40 rounded-lg hover:border-primary-container transition-colors cursor-pointer flex flex-col justify-between h-24">
+                  <div class="w-full h-10 bg-surface-clay/30 rounded flex items-center justify-center">
+                    <span class="material-symbols-outlined text-secondary-slate text-lg">dry_cleaning</span>
+                  </div>
+                  <div>
+                    <div class="text-[11px] font-semibold text-primary truncate">Barista Apron</div>
+                    <div class="font-mono text-[11px] font-bold text-primary-container">$45.00</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Cart Panel -->
+              <div class="col-span-5 bg-background p-3 flex flex-col justify-between">
+                <div class="space-y-2">
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-secondary-slate">Current Order (3)</span>
+                  <div class="bg-white p-2 border border-outline-muted/30 rounded text-[11px] flex justify-between">
+                    <div>
+                      <span class="font-medium text-primary">Ethiopian Roast</span>
+                      <div class="text-[9px] text-secondary-slate">1x Whole Bean</div>
+                    </div>
+                    <span class="font-mono font-bold text-primary">$18.50</span>
+                  </div>
+                  <div class="bg-white p-2 border border-outline-muted/30 rounded text-[11px] flex justify-between">
+                    <span class="font-medium text-primary">Ceramic Dripper</span>
+                    <span class="font-mono font-bold text-primary">$35.00</span>
+                  </div>
+                  <div class="bg-white p-2 border border-outline-muted/30 rounded text-[11px] flex justify-between">
+                    <span class="font-medium text-primary">Oat Milk</span>
+                    <span class="font-mono font-bold text-primary">$6.50</span>
+                  </div>
+                </div>
+                <div class="border-t border-surface-clay pt-2 space-y-2">
+                  <div class="flex justify-between items-baseline">
+                    <span class="text-xs font-semibold text-secondary-slate">Total</span>
+                    <span class="font-mono text-base font-bold text-primary-container">$60.00</span>
+                  </div>
+                  <button class="w-full bg-primary text-white rounded py-2 text-xs font-semibold flex items-center justify-center gap-1 hover:bg-primary-container transition-colors">
+                    <span class="material-symbols-outlined text-xs">credit_card</span>
+                    Charge $60.00
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Metrics & Social Proof -->
+    <section class="max-w-[1280px] mx-auto px-6 mb-24">
+      <div class="bg-surface-clay rounded-2xl p-8 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-soft">
+        <div class="flex flex-wrap gap-8 items-center justify-center opacity-70 grayscale mix-blend-multiply">
+          <span class="font-display text-xl font-bold tracking-widest text-primary">ACME RETAIL</span>
+          <span class="font-display text-xl font-bold tracking-tight text-primary">GLOBEX</span>
+          <span class="font-display text-xl font-bold tracking-widest text-primary">SOYLENT</span>
+          <span class="font-display text-xl font-bold uppercase text-primary">INITECH</span>
+        </div>
+        <div class="hidden lg:block h-12 w-px bg-outline-muted/40"></div>
+        <div class="grid grid-cols-3 gap-8 text-center text-primary w-full lg:w-auto">
+          <div>
+            <div class="font-display text-3xl font-bold">&lt; 0.8s</div>
+            <div class="text-xs font-medium text-secondary-slate mt-0.5">Checkout Speed</div>
+          </div>
+          <div>
+            <div class="font-display text-3xl font-bold">99.99%</div>
+            <div class="text-xs font-medium text-secondary-slate mt-0.5">Offline Uptime</div>
+          </div>
+          <div>
+            <div class="font-display text-3xl font-bold">$250M+</div>
+            <div class="text-xs font-medium text-secondary-slate mt-0.5">Volume Processed</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Bento Grid Feature Section -->
+    <section id="features" class="max-w-[1280px] mx-auto px-6 mb-24 space-y-12">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="font-display text-3xl font-bold text-primary mb-3">Core Pillars of High-Volume Retail</h2>
+        <p class="text-secondary-slate text-sm sm:text-base">Engineered from scratch to withstand peak retail rushes without dropping a packet.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <!-- Bento 1: Inventory (8 cols) -->
+        <div class="card-base md:col-span-8 p-6 flex flex-col justify-between">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-surface-clay/40 rounded text-xs font-semibold text-secondary-slate mb-3">
+              <span class="material-symbols-outlined text-sm">inventory_2</span>
+              <span>Inventory Sync</span>
+            </div>
+            <h3 class="font-display text-xl font-bold text-primary mb-1">Real-Time Multi-Location Inventory</h3>
+            <p class="text-secondary-slate text-xs mb-4">Stock balances recalculate across every terminal the microsecond a sale completes.</p>
+          </div>
+          <div class="bg-background border border-outline-muted/40 rounded-lg overflow-hidden">
+            <table class="w-full text-left text-xs font-body">
+              <thead class="bg-white border-b border-outline-muted/30 text-secondary-slate font-semibold">
+                <tr>
+                  <th class="p-3">SKU</th>
+                  <th class="p-3">Downtown</th>
+                  <th class="p-3">Uptown</th>
+                  <th class="p-3">Warehouse</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-surface-clay/50 font-mono text-[11px]">
+                <tr>
+                  <td class="p-3 font-medium text-primary">TSH-BLK-M</td>
+                  <td class="p-3">42</td>
+                  <td class="p-3">18</td>
+                  <td class="p-3">156</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-medium text-primary">JNS-BLU-32</td>
+                  <td class="p-3 text-red-600 font-bold">2 (Low)</td>
+                  <td class="p-3">24</td>
+                  <td class="p-3">89</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-medium text-primary">HD-GRY-L</td>
+                  <td class="p-3">15</td>
+                  <td class="p-3 text-primary-container font-bold">5 (Restock)</td>
+                  <td class="p-3">45</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Bento 2: Speed (4 cols) -->
+        <div class="card-base md:col-span-4 p-6 flex flex-col justify-between">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-surface-clay/40 rounded text-xs font-semibold text-secondary-slate mb-3">
+              <span class="material-symbols-outlined text-sm">bolt</span>
+              <span>Speed</span>
+            </div>
+            <h3 class="font-display text-xl font-bold text-primary mb-1">Sub-Second Checkout</h3>
+            <p class="text-secondary-slate text-xs">Instant scanning and single-tap contactless payment execution.</p>
+          </div>
+          <div class="h-32 bg-background border border-outline-muted/40 rounded-xl flex flex-col items-center justify-center relative">
+            <span class="font-mono text-3xl font-bold text-primary">0.78<span class="text-primary-container text-xl">s</span></span>
+            <span class="text-[10px] text-secondary-slate uppercase tracking-wider font-semibold mt-1">Transaction Latency</span>
+          </div>
+        </div>
+
+        <!-- Bento 3: Offline (4 cols) -->
+        <div class="card-base md:col-span-4 p-6 flex flex-col justify-between">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-surface-clay/40 rounded text-xs font-semibold text-secondary-slate mb-3">
+              <span class="material-symbols-outlined text-sm">database</span>
+              <span>Resilience</span>
+            </div>
+            <h3 class="font-display text-xl font-bold text-primary mb-1">100% Offline Mode</h3>
+            <p class="text-secondary-slate text-xs">Zero downtime. Local SQLite caching synchronizes automatically on reconnection.</p>
+          </div>
+          <div class="p-3 bg-background border border-outline-muted/40 rounded-xl flex items-center justify-between text-xs font-mono">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-secondary-slate">store</span>
+              <span>Local</span>
+            </div>
+            <span class="material-symbols-outlined text-primary-container text-sm animate-pulse">sync_alt</span>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-secondary-slate">cloud</span>
+              <span>Cloud</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento 4: Staff Roles (8 cols) -->
+        <div class="card-base md:col-span-8 p-6 flex flex-col justify-between">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-surface-clay/40 rounded text-xs font-semibold text-secondary-slate mb-3">
+              <span class="material-symbols-outlined text-sm">shield_person</span>
+              <span>Security</span>
+            </div>
+            <h3 class="font-display text-xl font-bold text-primary mb-1">Staff Roles & PIN Audits</h3>
+            <p class="text-secondary-slate text-xs mb-4">Fast user switching with PIN security, shift drawer balancing, and granular discounts.</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-background border border-outline-muted/40 rounded-lg p-3 flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <div class="w-7 h-7 rounded-full bg-surface-clay flex items-center justify-center font-bold text-xs text-primary">JD</div>
+                <div>
+                  <div class="text-xs font-semibold text-primary">John D. (Manager)</div>
+                  <div class="text-[10px] text-secondary-slate">Drawer #1 • Verified</div>
+                </div>
+              </div>
+              <span class="text-[10px] font-mono font-bold text-primary-container bg-primary-container/10 px-2 py-0.5 rounded">Active</span>
+            </div>
+            <div class="bg-background border border-outline-muted/40 rounded-lg p-3 flex items-center justify-between opacity-60">
+              <div class="flex items-center gap-2.5">
+                <div class="w-7 h-7 rounded-full bg-surface-clay flex items-center justify-center font-bold text-xs text-primary">AS</div>
+                <div>
+                  <div class="text-xs font-semibold text-primary">Alice S. (Cashier)</div>
+                  <div class="text-[10px] text-secondary-slate">Shift Completed</div>
+                </div>
+              </div>
+              <span class="text-[10px] font-mono text-secondary-slate">Clocked Out</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Hardware Compatibility Section -->
+    <section id="hardware" class="max-w-[1280px] mx-auto px-6 mb-24 space-y-12">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="font-display text-3xl font-bold text-primary mb-3">Enterprise Hardware Compatibility</h2>
+        <p class="text-secondary-slate text-sm sm:text-base">Plug-and-play peripherals via USB-C, Bluetooth 5.2, or local Ethernet.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card-base p-6 text-center space-y-3">
+          <div class="w-12 h-12 rounded-full bg-surface-clay/50 flex items-center justify-center mx-auto text-primary">
+            <span class="material-symbols-outlined text-2xl">tablet_mac</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-primary">Tablet Swivel Docks</h3>
+          <p class="text-xs text-secondary-slate leading-relaxed">Integrated card reader mounting with locking stands for iPad Pro and Galaxy Tab.</p>
+        </div>
+        <div class="card-base p-6 text-center space-y-3">
+          <div class="w-12 h-12 rounded-full bg-surface-clay/50 flex items-center justify-center mx-auto text-primary">
+            <span class="material-symbols-outlined text-2xl">barcode_scanner</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-primary">Wireless 2D Scanners</h3>
+          <p class="text-xs text-secondary-slate leading-relaxed">Sub-100ms optical decode supporting damaged barcodes, QR tags, and digital coupons.</p>
+        </div>
+        <div class="card-base p-6 text-center space-y-3">
+          <div class="w-12 h-12 rounded-full bg-surface-clay/50 flex items-center justify-center mx-auto text-primary">
+            <span class="material-symbols-outlined text-2xl">receipt_long</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-primary">Thermal Receipt Printers</h3>
+          <p class="text-xs text-secondary-slate leading-relaxed">High-speed 80mm silent printing with automatic cutter and cash drawer kick ports.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Pricing Section -->
+    <section id="pricing" class="bg-surface-clay/40 border-y border-outline-muted/40 py-24">
+      <div class="max-w-[1280px] mx-auto px-6 space-y-12">
+        <div class="text-center max-w-xl mx-auto">
+          <h2 class="font-display text-3xl font-bold text-primary mb-3">Simple, Transparent Pricing</h2>
+          <p class="text-secondary-slate text-sm">No hidden transaction markups. Keep your existing payment processor or switch anytime.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto items-stretch">
+          <!-- Starter -->
+          <div class="card-base p-8 flex flex-col justify-between">
+            <div>
+              <h3 class="font-display text-xl font-bold text-primary mb-1">Starter</h3>
+              <div class="flex items-baseline gap-1 my-3">
+                <span class="font-display text-4xl font-bold text-primary">$29</span>
+                <span class="text-xs text-secondary-slate">/month</span>
+              </div>
+              <p class="text-xs text-secondary-slate mb-6">For single boutique stores and emerging cafes.</p>
+              <ul class="space-y-3 text-xs text-secondary-slate">
+                <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-container text-sm">check</span> Single store location</li>
+                <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-container text-sm">check</span> 1 primary terminal register</li>
+                <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-container text-sm">check</span> Core POS & inventory tracking</li>
+              </ul>
+            </div>
+            <button class="btn-secondary w-full mt-8">Start Free Trial</button>
+          </div>
+
+          <!-- Pro (Featured) -->
+          <div class="card-base p-8 flex flex-col justify-between border-2 border-primary-container relative shadow-level-2 md:-translate-y-3">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary-container text-white px-3 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider">
+              Most Popular
+            </div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-primary mb-1">Pro</h3>
+              <div class="flex items-baseline gap-1 my-3">
+                <span class="font-display text-4xl font-bold text-primary">$79</span>
+                <span class="text-xs text-secondary-slate">/month</span>
+              </div>
+              <p class="text-xs text-secondary-slate mb-6">For growing multi-outlet retailers.</p>
+              <ul class="space-y-3 text-xs text-secondary-slate">
+                <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-container text-sm">check</span> Up to 3 store locations</li>
+                <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-container text-sm">check</span> Unlimited staff PINs & roles</li>
+                <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-container text-sm">check</span> Advanced inventory transfer</li>
+                <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-container text-sm">check</span> Full hardware kit support</li>
+              </ul>
+            </div>
+            <button class="btn-primary w-full mt-8">Start Free Trial</button>
+          </div>
+
+          <!-- Enterprise -->
+          <div class="card-base p-8 flex flex-col justify-between">
+            <div>
+              <h3 class="font-display text-xl font-bold text-primary mb-1">Enterprise</h3>
+              <div class="flex items-baseline gap-1 my-3">
+                <span class="font-display text-4xl font-bold text-primary">Custom</span>
+              </div>
+              <p class="text-xs text-secondary-slate mb-6">For large retail chains and franchise networks.</p>
+              <ul class="space-y-3 text-xs text-secondary-slate">
+                <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-container text-sm">check</span> Unlimited locations & registers</li>
+                <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-container text-sm">check</span> Custom ERP & SAP integrations</li>
+                <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-container text-sm">check</span> 24/7 dedicated phone support</li>
+              </ul>
+            </div>
+            <button class="btn-secondary w-full mt-8">Contact Sales</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 7. Dark Anchor Footer -->
+  <footer class="bg-inverse-dark text-white border-t border-outline-muted/20 py-16">
+    <div class="max-w-[1280px] mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 text-xs">
+      <div class="space-y-4">
+        <div class="flex items-center gap-2">
+          <div class="w-6 h-6 rounded bg-primary-container flex items-center justify-center">
+            <div class="w-2.5 h-2.5 bg-inverse-dark rounded-sm rotate-45"></div>
+          </div>
+          <span class="font-display font-bold text-base text-white">OmniPOS</span>
+        </div>
+        <p class="text-surface-clay/70 leading-relaxed">Enterprise point-of-sale infrastructure for high-volume boutiques and multi-branch retail networks.</p>
+        <div class="inline-flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-[11px]">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span class="text-surface-clay">All Systems Operational</span>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <h4 class="font-display font-bold text-sm text-white">Product</h4>
+        <ul class="space-y-2 text-surface-clay/80">
+          <li><a class="hover:text-primary-container transition-colors" href="#features">POS Terminal</a></li>
+          <li><a class="hover:text-primary-container transition-colors" href="#pillars">Multi-Store Sync</a></li>
+          <li><a class="hover:text-primary-container transition-colors" href="#hardware">Hardware Kits</a></li>
+          <li><a class="hover:text-primary-container transition-colors" href="#pricing">Pricing</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-3">
+        <h4 class="font-display font-bold text-sm text-white">Legal & Security</h4>
+        <ul class="space-y-2 text-surface-clay/80">
+          <li><a class="hover:text-primary-container transition-colors" href="#">Privacy Policy</a></li>
+          <li><a class="hover:text-primary-container transition-colors" href="#">Terms of Service</a></li>
+          <li><a class="hover:text-primary-container transition-colors" href="#">SOC 2 Compliance</a></li>
+          <li><a class="hover:text-primary-container transition-colors" href="#">Security Overview</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-4">
+        <h4 class="font-display font-bold text-sm text-white">Stay Updated</h4>
+        <div class="flex gap-2">
+          <input class="bg-white/10 border border-outline-muted/30 rounded px-3 py-2 text-xs text-white placeholder-surface-clay/50 flex-1 focus:outline-none focus:border-primary-container" placeholder="work@company.com" type="email"/>
+          <button class="bg-primary-container text-white px-3 rounded hover:bg-white hover:text-primary transition-colors flex items-center justify-center">
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </button>
+        </div>
+        <p class="text-surface-clay/50 text-[11px] pt-4">© 2026 OmniPOS Technologies Inc. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
