@@ -10,8 +10,8 @@ A responsive, high-converting B2B SaaS landing page designed for **OmniPOS**, an
 
 ![OmniPOS Landing Page Preview](screen.png)
 
-> **Live Demo:** [https://<YOUR_GITHUB_USERNAME>.github.io/<YOUR_REPO_NAME>/](https://<YOUR_GITHUB_USERNAME>.github.io/<YOUR_REPO_NAME>/)
-
+> **Live Demo:** [https://<YOUR_GITHUB_USERNAME>.github.io/<YOUR_REPO_NAME>/]
+> **Live Demo:** [https://saad-collabk.github.io/Omni-Saas-landing-page/](https://saad-collabk.github.io/Omni-Saas-landing-page/)
 ---
 
 ## ✨ Key Features
